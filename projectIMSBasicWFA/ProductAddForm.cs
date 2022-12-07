@@ -13,6 +13,7 @@ namespace projectIMSBasicWFA
 {
     public partial class ProductAddForm : Form
     {
+
         public ProductAddForm()
         {
             InitializeComponent();
@@ -46,16 +47,23 @@ namespace projectIMSBasicWFA
                         DataTable dt = ds.Tables["Products"];
 
                         DataRow wr = dt.NewRow();
+
+                        // TODO : Tests before adding the data                      
                         wr[1] = nameTextBox.Text;
-                        wr[2] = categoryComboBox.Text;
-                        wr[3] = Convert.ToDecimal(priceTextBox.Text);
-                        wr[4] = 0;
-                        wr[5] = 1;
+                        wr[2] = supplierTextBox.Text;
+                        wr[3] = Convert.ToInt32(categoryComboBox.Text);
+                        wr[4] = quantPerUnitTextBox.Text;
+                        wr[5] = Convert.ToDecimal(priceTextBox.Text);
+                        wr[6] = Convert.ToInt32(unitsInStockTextBox.Text);
+                        wr[7] = Convert.ToInt32(unitsOnOrderTextBox.Text);
+                        wr[8] = Convert.ToInt32(reOrderLevelTextBox.Text);
+                        wr[9] = 0;
                         dt.Rows.Add(wr);
                         db.DA.Update(dt);
 
                         MessageBox.Show("Product Successfully Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         clearEntries();
+                    
                     }
                     catch (Exception)
                     {

@@ -12,6 +12,8 @@ namespace projectIMSBasicWFA
 {
     public partial class IMSMainForm : Form
     {
+        public static int SELECTED_PRODUCT_ID = 1;
+
         public IMSMainForm()
         {
             InitializeComponent();
@@ -141,6 +143,23 @@ namespace projectIMSBasicWFA
         {
             ProductQuantForm ProdQuant = new ProductQuantForm();
             ProdQuant.ShowDialog();
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void productDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                SELECTED_PRODUCT_ID = Convert.ToInt32(productDataGridView.Rows[productDataGridView.CurrentCell.RowIndex].Cells[0].Value);
+            } 
+            catch(Exception)
+            {
+
+            }
         }
     }
 }

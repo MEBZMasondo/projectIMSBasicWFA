@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
-            this.productDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchByIDRadioButton = new System.Windows.Forms.RadioButton();
-            this.searchByNameRadioButton = new System.Windows.Forms.RadioButton();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.searchButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.searchByNameRadioButton = new System.Windows.Forms.RadioButton();
+            this.searchByIDRadioButton = new System.Windows.Forms.RadioButton();
+            this.productDataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.functionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateQuantitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lowStockButton = new System.Windows.Forms.Button();
             this.lowStockCheckBox = new System.Windows.Forms.CheckBox();
@@ -68,28 +68,36 @@
             this.searchGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchGroupBox.Location = new System.Drawing.Point(12, 27);
             this.searchGroupBox.Name = "searchGroupBox";
-            this.searchGroupBox.Size = new System.Drawing.Size(878, 115);
+            this.searchGroupBox.Size = new System.Drawing.Size(1068, 115);
             this.searchGroupBox.TabIndex = 0;
             this.searchGroupBox.TabStop = false;
             // 
-            // productDataGridView
+            // clearButton
             // 
-            this.productDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productDataGridView.Location = new System.Drawing.Point(12, 156);
-            this.productDataGridView.Name = "productDataGridView";
-            this.productDataGridView.Size = new System.Drawing.Size(878, 216);
-            this.productDataGridView.TabIndex = 1;
+            this.clearButton.Location = new System.Drawing.Point(526, 71);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(252, 35);
+            this.clearButton.TabIndex = 6;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
-            // searchByIDRadioButton
+            // searchButton
             // 
-            this.searchByIDRadioButton.AutoSize = true;
-            this.searchByIDRadioButton.Location = new System.Drawing.Point(224, 25);
-            this.searchByIDRadioButton.Name = "searchByIDRadioButton";
-            this.searchByIDRadioButton.Size = new System.Drawing.Size(136, 28);
-            this.searchByIDRadioButton.TabIndex = 2;
-            this.searchByIDRadioButton.Text = "Search By ID";
-            this.searchByIDRadioButton.UseVisualStyleBackColor = true;
-            this.searchByIDRadioButton.CheckedChanged += new System.EventHandler(this.searchByIDRadioButton_CheckedChanged);
+            this.searchButton.Location = new System.Drawing.Point(526, 28);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(252, 35);
+            this.searchButton.TabIndex = 5;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(16, 68);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(407, 29);
+            this.searchTextBox.TabIndex = 4;
             // 
             // searchByNameRadioButton
             // 
@@ -104,32 +112,25 @@
             this.searchByNameRadioButton.UseVisualStyleBackColor = true;
             this.searchByNameRadioButton.CheckedChanged += new System.EventHandler(this.searchByNameRadioButton_CheckedChanged);
             // 
-            // searchTextBox
+            // searchByIDRadioButton
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(16, 68);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(407, 29);
-            this.searchTextBox.TabIndex = 4;
+            this.searchByIDRadioButton.AutoSize = true;
+            this.searchByIDRadioButton.Location = new System.Drawing.Point(224, 25);
+            this.searchByIDRadioButton.Name = "searchByIDRadioButton";
+            this.searchByIDRadioButton.Size = new System.Drawing.Size(136, 28);
+            this.searchByIDRadioButton.TabIndex = 2;
+            this.searchByIDRadioButton.Text = "Search By ID";
+            this.searchByIDRadioButton.UseVisualStyleBackColor = true;
+            this.searchByIDRadioButton.CheckedChanged += new System.EventHandler(this.searchByIDRadioButton_CheckedChanged);
             // 
-            // searchButton
+            // productDataGridView
             // 
-            this.searchButton.Location = new System.Drawing.Point(526, 28);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(252, 35);
-            this.searchButton.TabIndex = 5;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
-            // clearButton
-            // 
-            this.clearButton.Location = new System.Drawing.Point(526, 71);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(252, 35);
-            this.clearButton.TabIndex = 6;
-            this.clearButton.Text = "Clear";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.productDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productDataGridView.Location = new System.Drawing.Point(12, 156);
+            this.productDataGridView.Name = "productDataGridView";
+            this.productDataGridView.Size = new System.Drawing.Size(1068, 216);
+            this.productDataGridView.TabIndex = 1;
+            this.productDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDataGridView_CellClick);
             // 
             // menuStrip1
             // 
@@ -139,7 +140,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(902, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1092, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -154,7 +155,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -167,14 +168,6 @@
             this.functionsToolStripMenuItem.Name = "functionsToolStripMenuItem";
             this.functionsToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.functionsToolStripMenuItem.Text = "&Functions";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // addNewItemToolStripMenuItem
             // 
@@ -194,10 +187,18 @@
             this.updateQuantitiesToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.updateQuantitiesToolStripMenuItem.Text = "Update Quantities";
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             // 
             // lowStockButton
@@ -263,6 +264,7 @@
             this.updateButton.TabIndex = 8;
             this.updateButton.Text = "Update Product";
             this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // updateQuantButton
             // 
@@ -300,7 +302,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 526);
+            this.ClientSize = new System.Drawing.Size(1092, 526);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.actReactButton);
             this.Controls.Add(this.updateQuantButton);
