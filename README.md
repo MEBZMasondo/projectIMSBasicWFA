@@ -1,6 +1,13 @@
 # projectIMSBasicWFA
 A basic inventory management system solution
 
+Uses :
+C# Programming language
+SQL Server 
+
+Access the database creation script on the repository : Resources and datasets (Script to create database : "NorthwindEdit1.sql")
+change the connection strings to fit to your local databases
+
 ![main_IMS](https://user-images.githubusercontent.com/109286764/206764606-0a8848d2-569f-4bbd-9471-a51e79252c9a.JPG)
 
 ![add_product](https://user-images.githubusercontent.com/109286764/206764744-e5fdad42-4ef5-44b3-85f2-6ff6d1e7b5b1.JPG)
