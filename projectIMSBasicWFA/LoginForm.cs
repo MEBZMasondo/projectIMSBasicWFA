@@ -30,8 +30,32 @@ namespace projectIMSBasicWFA
 
                 if (dt.Rows.Count > 0)
                 {
-                    IMSMainForm IMSForm = new IMSMainForm();
-                    IMSForm.Show();
+
+                    clearEntries();
+
+                    bool IsOpen = false;
+                    foreach (Form f in Application.OpenForms)
+                    {
+                        if (f.Name == "IMSMainForm")
+                        {
+                            IsOpen = true;                 
+
+                            f.Show();
+                            f.Update();
+
+                            this.Close();
+
+                            break;
+                        }
+                    }
+                    if (IsOpen == false)
+                    {
+                        this.Hide();
+
+                        IMSMainForm IMSForm = new IMSMainForm();
+                        IMSForm.Show();
+                                   
+                    }
                 }
                 else
                 {
@@ -39,9 +63,9 @@ namespace projectIMSBasicWFA
                     clearEntries();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Invalid Login", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

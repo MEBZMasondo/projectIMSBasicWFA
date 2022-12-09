@@ -21,24 +21,47 @@ namespace projectIMSBasicWFA
 
         public void loadAllData()
         {
-            String tableName = "Products";
-            String queryWHERE = "Discontinued = '" + 0 + "'";
-            DBConnect dbAll = new DBConnect(tableName, queryWHERE);
-            DataSet dsAll = new DataSet();
-            dbAll.DA.Fill(dsAll, "Products");
-            DataTable dtAll = dsAll.Tables["Products"];
+            try
+            {
+                String tableName = "Products";
+                String queryWHERE = "Discontinued = '" + 0 + "'";
+                DBConnect dbAll = new DBConnect(tableName, queryWHERE);
+                DataSet dsAll = new DataSet();
+                dbAll.DA.Fill(dsAll, "Products");
+                DataTable dtAll = dsAll.Tables["Products"];
 
-            productDataGridView.DataSource = dtAll;
+                productDataGridView.DataSource = dtAll;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
+            finally
+            {
+
+            }           
         }
 
         private void IMSMainForm_Load(object sender, EventArgs e)
         {
             loadAllData();
+
+            // Maximise Form
+            this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Are You Sure You Want to Exit The Application", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                System.Windows.Forms.Application.Exit();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                
+            }
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -136,18 +159,36 @@ namespace projectIMSBasicWFA
         private void addButton_Click(object sender, EventArgs e)
         {
             ProductAddForm ProdAdd = new ProductAddForm();
+            ProdAdd.FormClosed += new FormClosedEventHandler(ProductAddForm_FormClosed); //add handler to catch when child form is closed
             ProdAdd.ShowDialog();
-        }     
+        }
+        private void ProductAddForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // what to do if ProdQuantForm closes
+            loadAllData(); //when child form is closed, this code is executed
+        }
 
         private void updateQuantButton_Click(object sender, EventArgs e)
         {
-            ProductQuantForm ProdQuant = new ProductQuantForm();
+            ProductQuantForm ProdQuant = new ProductQuantForm();//create new isntance of form
+            ProdQuant.FormClosed += new FormClosedEventHandler(ProductQuantForm_FormClosed); //add handler to catch when child form is closed
             ProdQuant.ShowDialog();
+        }
+        private void ProductQuantForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+            loadAllData(); //when child form is closed, this code is executed
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            
+            ProductUpdateForm ProdUpdate = new ProductUpdateForm();
+            ProdUpdate.FormClosed += new FormClosedEventHandler(ProductUpdateForm_FormClosed); //add handler to catch when child form is closed
+            ProdUpdate.ShowDialog();
+        }
+        private void ProductUpdateForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            loadAllData(); //when child form is closed, this code is executed
         }
 
         private void productDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -160,6 +201,51 @@ namespace projectIMSBasicWFA
             {
 
             }
+        }
+
+        private void actReactButton_Click(object sender, EventArgs e)
+        {
+            ProductArchiveForm prodArchive = new ProductArchiveForm();
+            prodArchive.ShowDialog();
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are You Sure You Want to Log Out", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                bool IsOpen = false;
+                foreach (Form f in Application.OpenForms)
+                {
+                    if (f.Name == "LoginForm")
+                    {
+                        IsOpen = true;
+
+                        f.Show();
+                        f.Update();
+
+                        this.Close();
+                  
+                        break;
+                    }
+                }
+                if (IsOpen == false)
+                {
+                    LoginForm log = new LoginForm();
+                    log.Show();
+
+                    this.Close();
+                }
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+        }
+
+        private void IMSMainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

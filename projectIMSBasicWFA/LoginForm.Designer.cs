@@ -152,6 +152,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "INVENTORY MANAGEMENT LOGIN";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.groupBox1.ResumeLayout(false);

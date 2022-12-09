@@ -79,5 +79,10 @@ namespace projectIMSBasicWFA
                 MessageBox.Show("Please Enter All Data", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void ProductAddForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // keep to refresh DB when this form closes
+        }
     }
 }

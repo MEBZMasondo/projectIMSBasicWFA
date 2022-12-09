@@ -65,11 +65,23 @@
     <Compile Include="ProductAddForm.Designer.cs">
       <DependentUpon>ProductAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductArchiveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductArchiveForm.Designer.cs">
+      <DependentUpon>ProductArchiveForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductQuantForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProductQuantForm.Designer.cs">
       <DependentUpon>ProductQuantForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUpdateForm.Designer.cs">
+      <DependentUpon>ProductUpdateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,8 +94,14 @@
     <EmbeddedResource Include="ProductAddForm.resx">
       <DependentUpon>ProductAddForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductArchiveForm.resx">
+      <DependentUpon>ProductArchiveForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductQuantForm.resx">
       <DependentUpon>ProductQuantForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUpdateForm.resx">
+      <DependentUpon>ProductUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

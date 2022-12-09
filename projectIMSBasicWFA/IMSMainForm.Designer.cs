@@ -44,6 +44,7 @@
             this.updateQuantitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lowStockButton = new System.Windows.Forms.Button();
             this.lowStockCheckBox = new System.Windows.Forms.CheckBox();
             this.lowLimitTextBox = new System.Windows.Forms.TextBox();
@@ -68,7 +69,7 @@
             this.searchGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchGroupBox.Location = new System.Drawing.Point(12, 27);
             this.searchGroupBox.Name = "searchGroupBox";
-            this.searchGroupBox.Size = new System.Drawing.Size(1068, 115);
+            this.searchGroupBox.Size = new System.Drawing.Size(1303, 115);
             this.searchGroupBox.TabIndex = 0;
             this.searchGroupBox.TabStop = false;
             // 
@@ -128,7 +129,7 @@
             this.productDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productDataGridView.Location = new System.Drawing.Point(12, 156);
             this.productDataGridView.Name = "productDataGridView";
-            this.productDataGridView.Size = new System.Drawing.Size(1068, 216);
+            this.productDataGridView.Size = new System.Drawing.Size(1303, 383);
             this.productDataGridView.TabIndex = 1;
             this.productDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDataGridView_CellClick);
             // 
@@ -137,10 +138,11 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.functionsToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.logOutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1092, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1339, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -201,10 +203,17 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.logOutToolStripMenuItem.Text = "&Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
             // lowStockButton
             // 
             this.lowStockButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lowStockButton.Location = new System.Drawing.Point(682, 387);
+            this.lowStockButton.Location = new System.Drawing.Point(1107, 545);
             this.lowStockButton.Name = "lowStockButton";
             this.lowStockButton.Size = new System.Drawing.Size(208, 52);
             this.lowStockButton.TabIndex = 3;
@@ -216,7 +225,7 @@
             // 
             this.lowStockCheckBox.AutoSize = true;
             this.lowStockCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lowStockCheckBox.Location = new System.Drawing.Point(682, 445);
+            this.lowStockCheckBox.Location = new System.Drawing.Point(1107, 603);
             this.lowStockCheckBox.Name = "lowStockCheckBox";
             this.lowStockCheckBox.Size = new System.Drawing.Size(208, 28);
             this.lowStockCheckBox.TabIndex = 4;
@@ -227,7 +236,7 @@
             // lowLimitTextBox
             // 
             this.lowLimitTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lowLimitTextBox.Location = new System.Drawing.Point(785, 485);
+            this.lowLimitTextBox.Location = new System.Drawing.Point(1210, 646);
             this.lowLimitTextBox.Name = "lowLimitTextBox";
             this.lowLimitTextBox.ReadOnly = true;
             this.lowLimitTextBox.Size = new System.Drawing.Size(105, 29);
@@ -238,7 +247,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(678, 493);
+            this.label1.Location = new System.Drawing.Point(1103, 651);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 24);
             this.label1.TabIndex = 6;
@@ -247,9 +256,9 @@
             // addButton
             // 
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addButton.Location = new System.Drawing.Point(12, 387);
+            this.addButton.Location = new System.Drawing.Point(12, 565);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(208, 52);
+            this.addButton.Size = new System.Drawing.Size(263, 52);
             this.addButton.TabIndex = 7;
             this.addButton.Text = "Add Product";
             this.addButton.UseVisualStyleBackColor = true;
@@ -258,9 +267,9 @@
             // updateButton
             // 
             this.updateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateButton.Location = new System.Drawing.Point(12, 445);
+            this.updateButton.Location = new System.Drawing.Point(12, 623);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(208, 52);
+            this.updateButton.Size = new System.Drawing.Size(263, 52);
             this.updateButton.TabIndex = 8;
             this.updateButton.Text = "Update Product";
             this.updateButton.UseVisualStyleBackColor = true;
@@ -269,7 +278,7 @@
             // updateQuantButton
             // 
             this.updateQuantButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateQuantButton.Location = new System.Drawing.Point(236, 387);
+            this.updateQuantButton.Location = new System.Drawing.Point(331, 565);
             this.updateQuantButton.Name = "updateQuantButton";
             this.updateQuantButton.Size = new System.Drawing.Size(263, 52);
             this.updateQuantButton.TabIndex = 9;
@@ -280,21 +289,22 @@
             // actReactButton
             // 
             this.actReactButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.actReactButton.Location = new System.Drawing.Point(236, 445);
+            this.actReactButton.Location = new System.Drawing.Point(331, 623);
             this.actReactButton.Name = "actReactButton";
             this.actReactButton.Size = new System.Drawing.Size(263, 52);
             this.actReactButton.TabIndex = 10;
             this.actReactButton.Text = "Activate/Deactivate Product";
             this.actReactButton.UseVisualStyleBackColor = true;
+            this.actReactButton.Click += new System.EventHandler(this.actReactButton_Click);
             // 
             // refreshButton
             // 
             this.refreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshButton.Location = new System.Drawing.Point(503, 387);
+            this.refreshButton.Location = new System.Drawing.Point(640, 565);
             this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(179, 52);
+            this.refreshButton.Size = new System.Drawing.Size(263, 52);
             this.refreshButton.TabIndex = 11;
-            this.refreshButton.Text = "refresh Data";
+            this.refreshButton.Text = "Reset/refresh Data";
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
@@ -302,7 +312,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1092, 526);
+            this.ClientSize = new System.Drawing.Size(1339, 687);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.actReactButton);
             this.Controls.Add(this.updateQuantButton);
@@ -317,7 +327,9 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "IMSMainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IMSMainForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IMSMainForm_FormClosed);
             this.Load += new System.EventHandler(this.IMSMainForm_Load);
             this.searchGroupBox.ResumeLayout(false);
             this.searchGroupBox.PerformLayout();
@@ -356,5 +368,6 @@
         private System.Windows.Forms.Button updateQuantButton;
         private System.Windows.Forms.Button actReactButton;
         private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
     }
 }

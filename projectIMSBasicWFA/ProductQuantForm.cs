@@ -22,8 +22,7 @@ namespace projectIMSBasicWFA
         }
 
         private void ProductQuantForm_Load(object sender, EventArgs e)
-        {
-           
+        {           
             try
             {
                 current_selected_product_ID = IMSMainForm.SELECTED_PRODUCT_ID;
@@ -39,29 +38,16 @@ namespace projectIMSBasicWFA
 
                 if (Convert.ToInt32(dr[0]) == 0)
                 {
-                    idLabel.Text = "";                  
+                    idLabel.Text = "";
+                    nameLabel.Text = "";
                 }
                 else
                 {
                     idLabel.Text = Convert.ToString(dr[0]);
+                    nameLabel.Text = Convert.ToString(dr[1]);
 
                     unitsInStockLabel.Text = Convert.ToString(dr[6]);
                 }
-
-                /*
-                string selection = "ProductID = '" + current_selected_product_ID + "'";
-                db = new DBConnect("Products", selection);
-                SqlDataReader reader = db.Cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    idLabel.Text = Convert.ToString(reader[0]);
-                }
-                else
-                {
-                    idLabel.Text = "";
-                }
-                db.SqlConn.Close(); //don’t forget
-                */
             }
             catch (Exception)
             {
@@ -73,60 +59,110 @@ namespace projectIMSBasicWFA
             }
         }
 
+        public void clearEntries()
+        {
+            offsetTextBox.Clear();
+            offsetTextBox.Focus();
+        }
+
         private void addRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-
+            clearEntries();
         }
 
         private void subRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-
+            clearEntries();
         }
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            try
+            
+            int value;
+            if(offsetTextBox.Text != "")
             {
-                DBConnect mydb = new DBConnect("Products");
-                DataSet myds = new DataSet();
-                mydb.DA.Fill(myds, "Products");
-                mydb.DA.UpdateCommand = new SqlCommandBuilder(mydb.DA).GetUpdateCommand();
-                DataTable mydt = myds.Tables["Products"];            
-
-                if (addRadioButton.Checked)
+                try
                 {
-                    MessageBox.Show("Im Here");
-
-                    foreach (DataRow dr in mydt.Rows)
+                    current_selected_product_ID = IMSMainForm.SELECTED_PRODUCT_ID;
+                    try
                     {
-                        if (Convert.ToInt32(dr[0]) == current_selected_product_ID)
+                        value = Convert.ToInt16(offsetTextBox.Text); // value to offset by
+                        if (value > 0)
+                        { } // do nothing                         
+                        else
                         {
-                            dr["UnitsInStock"] = ((int)dr["UnitsInStock"] + Convert.ToInt32(offsetTextBox.Text));
+                            MessageBox.Show("Value must be greater than 0", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return; // do not continue with the rest of the code
                         }
                     }
-                    mydb.DA.Update(mydt);
-                }
-                if (subRadioButton.Checked)
-                {
-                    foreach (DataRow dr in mydt.Rows)
+                    catch (Exception ex)
                     {
-                        if (Convert.ToInt32(dr[0]) == current_selected_product_ID)
-                        {
-                            dr["UnitsInStock"] = ((int)dr["UnitsInStock"] - Convert.ToInt32(offsetTextBox.Text));
-                        }
+                        MessageBox.Show(ex.Message, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return; // do not continue with the rest of the code
                     }
-                    mydb.DA.Update(mydt);
+
+                    DialogResult result = MessageBox.Show("Do you want to change the value?", "Confirmation", MessageBoxButtons.YesNoCancel);
+                    if (result == DialogResult.Yes)
+                    {
+                        int currentQuantValue = 0;
+
+                        string selection = "ProductID = '" + current_selected_product_ID + "'";
+                        DBConnect mydb = new DBConnect("Products", selection);
+                        DataSet myds = new DataSet();
+                        mydb.DA.Fill(myds, "Products");
+                        mydb.DA.UpdateCommand = new SqlCommandBuilder(mydb.DA).GetUpdateCommand();
+                        DataTable mydt = myds.Tables["Products"];
+
+                        if (addRadioButton.Checked)
+                        {
+                            currentQuantValue = Convert.ToInt32(mydt.Rows[0][6]);
+                            mydt.Rows[0][6] = (currentQuantValue + value);
+
+                            mydb.DA.Update(mydt);
+                            clearEntries();
+
+                            unitsInStockLabel.Text = Convert.ToString(currentQuantValue + value);
+                        }
+
+                        if (subRadioButton.Checked)
+                        {
+                            //mydt.Rows[0][6] = (Convert.ToInt32(mydt.Rows[0][6]) - value);
+
+                            currentQuantValue = Convert.ToInt32(mydt.Rows[0][6]);
+                            mydt.Rows[0][6] = (currentQuantValue - value);
+
+                            mydb.DA.Update(mydt);
+                            clearEntries();
+
+                            unitsInStockLabel.Text = Convert.ToString(currentQuantValue - value);
+                        }
+                        String message = "Quantity changed successfully";
+                        MessageBox.Show(message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (result == DialogResult.No)
+                    {
+
+                    }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
 
-               
-
+                }
             }
-            catch (Exception)
+            else
             {
-
+                MessageBox.Show("Please Enter data", "Input", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            
+        }
 
-           
+        private void ProductQuantForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // keep to refresh DB when this form closes
         }
     }
 }
