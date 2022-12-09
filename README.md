@@ -2,3 +2,11 @@
 A basic inventory management system solution
 
 ![main_IMS](https://user-images.githubusercontent.com/109286764/206764606-0a8848d2-569f-4bbd-9471-a51e79252c9a.JPG)
+
+![add_product](https://user-images.githubusercontent.com/109286764/206764744-e5fdad42-4ef5-44b3-85f2-6ff6d1e7b5b1.JPG)
+
+![update_product](https://user-images.githubusercontent.com/109286764/206764770-afddcaf8-c031-4e62-84e6-6f1d1589a63d.JPG)
+
+![stock_quantity](https://user-images.githubusercontent.com/109286764/206764792-5df1db03-7e40-4493-a9fd-69f2451c9c93.JPG)
+
+![active_inactive](https://user-images.githubusercontent.com/109286764/206764825-880892c1-dc39-40c6-93b2-bfcd6ddc0a6d.JPG)
