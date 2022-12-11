@@ -15,7 +15,8 @@ SQL Server
     Change the connection string only at this location to suit the local db/server where the database will be located
 
 # Project resources links
-- [Amazon MQ](https://aws.amazon.com/amazon-mq/) - Open source message broker from Amazon.
+
+- [PEXELS](https://www.pexels.com) - Free stock photos and videos.
 
 # Project Explanaition
 
