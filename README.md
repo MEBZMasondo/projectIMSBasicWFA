@@ -6,7 +6,12 @@ C# Programming language
 SQL Server 
 
 Access the database creation script on the repository : Resources and datasets (Script to create database : "NorthwindEdit1.sql")
+This dataset has an extra table : Login , used for login credentials. username: Admin01 password: Password01
 change the connection strings to fit to your local databases
+
+- 
+
+- [Amazon MQ](https://aws.amazon.com/amazon-mq/) - Open source message broker from Amazon.
 
 ![login](https://user-images.githubusercontent.com/109286764/206780273-8f939cc9-0cd2-4951-92c5-7c51788b2204.JPG)
 
