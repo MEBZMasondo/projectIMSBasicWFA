@@ -1,17 +1,23 @@
 # projectIMSBasicWFA
 A basic inventory management system solution
 
-Uses :
+# Project Details
+- Uses :
 C# Programming language
 SQL Server 
 
-Access the database creation script on the repository : Resources and datasets (Script to create database : "NorthwindEdit1.sql")
-This dataset has an extra table : Login , used for login credentials. username: Admin01 password: Password01
-change the connection strings to fit to your local databases
+# Project Database Connectivity
+- Access the database creation script on the repository : Resources and datasets (Script to create database : "NorthwindEdit1.sql")
+- This dataset has an extra table : Login , used for login credentials. username: Admin01 password: Password01
+- change the connection strings to fit to your local databases:
+  In the first project (project name):
+    a class called ConnectDB was used to create the connections to the database
+    Change the connection string only at this location to suit the local db/server where the database will be located
 
-- 
-
+# Project resources links
 - [Amazon MQ](https://aws.amazon.com/amazon-mq/) - Open source message broker from Amazon.
+
+# Project Explanaition
 
 ![login](https://user-images.githubusercontent.com/109286764/206780273-8f939cc9-0cd2-4951-92c5-7c51788b2204.JPG)
 
